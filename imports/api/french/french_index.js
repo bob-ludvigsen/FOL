@@ -10,7 +10,7 @@ export const FrenchIndex = new Index({
   }),
   name: 'FrenchIndex',
   collection: French,
-  fields: ['DK', 'FR'],
+  fields: ['FR','FRForkortelse'],
   defaultSearchOptions: {
     limit: 50
   },

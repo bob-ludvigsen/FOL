@@ -20,10 +20,9 @@ Template.french.helpers({
         console.log("Nå nå");
         return { 'class': 'form-control empty', 'noDocumentsOnEmpty':'false', 'placeholder': 'Indtast fransk ord eller forkortelse...' };
     },
-  //  index: function () {
-  //      return FrenchIndex;
-  //  },
-
+    showMoreattr: function() {
+        return { 'class': 'btn btn-success'}
+    },
     index: () => FrenchIndex,
     resultsCount: function () {
         return FrenchIndex.getComponentDict().get('count');
@@ -41,5 +40,5 @@ Template.french.events({
         FrenchIndex.getComponentDict().clear();
     },
 
-    
+
 });

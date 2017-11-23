@@ -95,6 +95,10 @@
             </div>
         </div>
     {{else}}
+        {{#if resultsCount}}
+            <p>Din søgning giver: {{resultsCount}} resultater</p>
+
+        {{/if}}
         <div class="results-wrapper">
             <div class="table-responsive">
                 <table class="table table-hover">
@@ -123,13 +127,11 @@
                 </table>
             </div>
         </div>
+        {{> EasySearch.LoadMore index=index attributes=showMoreattr content="Hent flere"}}
         {{#EasySearch.IfNoResults index=index}}
             <div class="no-results">Beklager, men det kan jeg ikke finde til dig!</div>
         {{/EasySearch.IfNoResults}}
-        {{#if resultsCount}}
-            <p>Din søgning giver: {{resultsCount}} resultater</p>
 
-        {{/if}}
 
 
     {{/EasySearch.IfInputEmpty}}

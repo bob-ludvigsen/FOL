@@ -15,11 +15,11 @@ if (French.find().count() === 0) {
     });
 
 }
-/*
+
 if (English.find().count() === 0) {
 
     // create sample polls
-    var sampleWords = JSON.parse(Assets.getText('eng.json'));
+    var sampleWords = JSON.parse(Assets.getText('nested/eng.json'));
 
     // loop over each sample poll and insert into database
     _.each(sampleWords, function(words) {
@@ -31,7 +31,7 @@ if (English.find().count() === 0) {
 if (Tactic.find().count() === 0) {
 
     // create sample polls
-    var sampleWords = JSON.parse(Assets.getText('taktik.json'));
+    var sampleWords = JSON.parse(Assets.getText('nested/taktik.json'));
 
     // loop over each sample poll and insert into database
     _.each(sampleWords, function(words) {
@@ -39,7 +39,7 @@ if (Tactic.find().count() === 0) {
     });
 
 }
-*/
+
 
 
 

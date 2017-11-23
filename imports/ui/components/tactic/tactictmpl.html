@@ -1,0 +1,136 @@
+<template name="tactictempl">
+    <div class="page-header">
+        <h1>HRN 918-021 Hærens Taktiske Ordbog</h1>
+    </div>
+    <b><p>Søg på indhold i alle felter</p></b>
+
+    <div class="grey-background">
+        <div class="input-group">
+
+            {{> EasySearch.Input index=index attributes=inputAttributes}}
+            <div class="input-group-btn">
+                <button type="submit" class="btn btn-success" disabled="disabled"><span class="glyphicon glyphicon-search"></span></button>
+                <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+
+            </div>
+        </div>
+    </div>
+
+    {{#EasySearch.IfInputEmpty index=index }}
+        <h1>Vejledning</h1>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p>Hærens Taktiske Ordbog definerer en række af de taktiske begreber, der anvendes i den danske hær.
+                    Ordbogen er autoritativ i forhold til definitioner og forkortelser, og den er tilgængelig på FIIN,
+                    internettet og som mobil applikation.
+                    Søgningen kan ske vha. to typer filtre:
+                </p>
+                <ul>
+                    <li>Filtrer alle kolonner, og</li>
+                    <li>Filtrer en udvalgt kolonne, eks. Søg Begreber.</li>
+                </ul>
+
+                <p>
+                    Søgningen sker som en automatisk filtrering, og der skal ikke trykkes Enter/Return. Begrebet eller
+                    forkortelsen skal staves korrekt. Søgefunktionen finder automatisk de identiske ord.
+
+                    <br>
+                    <br>
+                    Hvis et begreb delvist defineres ud fra et præfix, så vil det i nogle tilfælde kun være opgivet i sin
+                    grundform. Akse er fx defineret, hvor forskellige aksetyper ikke har en selvstændig definition.
+                    Akse defineres som hovedretningen for en bevægelse. Angrebsakse er således hovedretningen for et angreb.
+                    <br>
+                    <br>
+                    Danske taktiske begreber kan optages i Taktisk Ordbog. Begreber på engelsk kan anvendes, hvis der ikke
+                    findes et tilsvarende dansk begreb. Ordbogen optager primært begreber, der er relevante for flere
+                    våbenarter eller bruges bredt inden for en våbenart. Tekniske beskrivelser, specifikke enheder og
+                    huskeord optages ikke. NATO begreber defineres i AAP-6 og indgår som udgangspunkt ikke i Taktisk Ordbog.
+                    NATO effekttermer er beskrevet i STANAG 2605 (Annex A). Danske effekttermer beskrives i Taktisk Ordbog.
+                </p>
+                <div class="spacer"></div>
+            </div>
+            <div class="col-md-6">
+                <p>Forslag til nye definitioner eller revidering af eksisterende definitioner sendes til Center for
+                    Landmilitære Operationer (CLO) ved Forsvarsakademiet. CLO indhenter herefter bidrag fra relevante
+                    interessenter og løfter eventuelt definitionen til godkendelse i Arbejdsgruppe Doktrin. Hvis definitionen
+                    godkendes, indføres den i Taktisk Ordbog.
+                    <br>
+                    <br>
+
+                    I Taktisk Ordbog defineres et begreb efter dets betydning. Formål, anvendelse og krav beskrives i
+                    enhedsreglementer og bør ikke indgå i definitioner eller bemærkningsfeltet. Begreber skal defineres
+                    kort og præcist og kunne anvendes af alle interessenter. Definitioner skrives på dansk.
+                </p>
+
+                <p>Taktisk Ordbog er ikke klassificeret og frigivet til internetbrug.</p>
+
+                <p><u>Kontaktoplysninger:</u></p>
+
+                <address>
+                    <strong>Forsvarsakademiet</strong><br>
+                    Att.: Center for Landmilitære Operationer<br>
+                    Institut for Militære Operationer<br>
+                    Ryvangs Allé 1<br/>
+                    2100 København Ø<br/>
+                </address>
+
+
+            </div>
+        </div>
+    {{else}}
+        {{#if resultsCount}}
+            <p>Din søgning giver: {{resultsCount}} resultater</p>
+
+        {{/if}}
+        <div class="results-wrapper">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Dansk</th>
+                        <th>Fransk</th>
+                        <th>FR fork</th>
+                        <th>DK fork</th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+
+                    {{#EasySearch.Each index=index }}
+                        <tr>
+
+
+                            <td>{{ord}}</td>
+                            <td>{{fork}}</td>
+                            <td>{{definition}}</td>
+                            <td>{{nato_translation}}</td>
+                            <td>{{remark}}</td>
+                            <td>{{rev}}</td>
+                        </tr>
+                    {{/EasySearch.Each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {{> EasySearch.LoadMore index=index attributes=showMoreattr content="Hent flere"}}
+        {{#EasySearch.IfNoResults index=index}}
+            <div class="no-results">Beklager, men det kan jeg ikke finde til dig!</div>
+        {{/EasySearch.IfNoResults}}
+
+
+
+    {{/EasySearch.IfInputEmpty}}
+
+
+
+    {{#EasySearch.IfSearching index=index }}
+        <div>Henter data...</div>
+
+    {{/EasySearch.IfSearching }}
+
+
+
+    {{test}}
+
+</template>

@@ -11,9 +11,9 @@ export const DanishFrenchIndex = new Index({
   }),
   name: 'DanishFrenchIndex',
   collection: French,
-  fields: ['DK'],
+  fields: ['DK','DKForkortelse'],
   defaultSearchOptions: {
-    limit: 50
+    limit: 20
   },
   permission: () => {
     //console.log(Meteor.userId());

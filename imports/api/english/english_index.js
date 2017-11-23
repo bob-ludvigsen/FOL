@@ -5,13 +5,13 @@ import { _ } from 'meteor/underscore';
 export const EnglishIndex = new Index({
   engine: new MongoDBEngine({
     sort: function () {
-      return { score: -1 };
+      return { engelsk: -1 };
     },
   }),
   collection: English,
   fields: ['engelsk', 'fork_uk'],
   defaultSearchOptions: {
-    limit: 8
+    limit: 50
   },
   permission: () => {
     //console.log(Meteor.userId());

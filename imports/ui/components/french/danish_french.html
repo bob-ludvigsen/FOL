@@ -4,9 +4,6 @@
         <h1>Dansk - Fransk <small>ordliste</small></h1>
     </div>
 
-
-    <b><p>Søg på Danske ord og forkortelser</p></b>
-
     <div class="grey-background">
         <div class="input-group">
             {{> EasySearch.Input index=index attributes=inputAttributes}}
@@ -17,6 +14,8 @@
             </div>
         </div>
     </div>
+
+
     {{#EasySearch.IfInputEmpty index=index }}
         <h1>Vejledning</h1>
 
@@ -94,14 +93,17 @@
             </div>
         </div>
     {{else}}
+        {{#if resultsCount}}
+            <p>Din søgning giver: {{resultsCount}} resultater</p>
 
+        {{/if}}
         <div class="results-wrapper">
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th>Fransk</th>
                         <th>Dansk</th>
+                        <th>Fransk</th>
                         <th>FR fork</th>
                         <th>DK fork</th>
                     </tr>
@@ -109,12 +111,11 @@
                     </thead>
                     <tbody>
 
-
-
                     {{#EasySearch.Each index=index }}
                         <tr>
-                            <td>{{FR}} ({{Ordklasse}})</td>
+
                             <td>{{DK}}</td>
+                            <td>{{FR}} ({{Ordklasse}})</td>
                             <td>{{FRForkortelse}}</td>
                             <td>{{DKforkortelse}}</td>
                         </tr>
@@ -123,13 +124,11 @@
                 </table>
             </div>
         </div>
+        {{> EasySearch.LoadMore index=index attributes=showMoreattr content="Hent flere"}}
         {{#EasySearch.IfNoResults index=index}}
             <div class="no-results">Beklager, men det kan jeg ikke finde til dig!</div>
         {{/EasySearch.IfNoResults}}
-        {{#if resultsCount}}
-            <p>Din søgning giver: {{resultsCount}} resultater</p>
 
-        {{/if}}
 
 
     {{/EasySearch.IfInputEmpty}}
@@ -144,3 +143,6 @@
 </template>
 
 
+<template name="task">
+    <li>{{text}}</li>
+</template>
