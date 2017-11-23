@@ -2,15 +2,15 @@ import { English } from './english.js';
 import { Index, MongoDBEngine } from 'meteor/easy:search';
 import { _ } from 'meteor/underscore';
 
-export const EnglishIndex = new Index({
+export const EngDaIndex = new Index({
   engine: new MongoDBEngine({
     sort: function () {
-      return { engelsk: -1 };
+      return { value: 1 };
     },
   }),
-  name: 'EnglishIndex',
+  name: 'EngDaIndex',
   collection: English,
-  fields: ['value', 'fork_dk'],
+  fields: ['engelsk', 'fork_uk'],
   defaultSearchOptions: {
     limit: 50
   },

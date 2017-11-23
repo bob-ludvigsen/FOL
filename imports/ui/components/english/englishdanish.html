@@ -1,0 +1,17 @@
+<template name="searchEngDa">
+
+    <b><p>Søg på danske ord</p></b>
+    <div class="grey-background">
+        <div class="input-group">
+
+            {{> EasySearch.Input index=index attributes=inputAttributes }}
+            <div class="input-group-btn">
+                <button type="submit" class="btn btn-success" disabled="disabled"><span class="glyphicon glyphicon-search"></span></button>
+                <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+
+            </div>
+        </div>
+    </div>
+
+
+</template>
