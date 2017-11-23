@@ -13,14 +13,8 @@ import { $ } from 'meteor/jquery';
 Template.english.helpers({
     inputAttributes: function () {
         return { 'class': 'easy-search-input', 'placeholder': 'Start searching...' };
-    },
-    players: function () {
-        return Players.find({}, { sort: { score: -1, name: 1 } });
-    },
-    selectedName: function () {
-        var player = EnglishIndex.config.mongoCollection.findOne({ __originalId: Session.get("selectedPlayer") });
-        return player && player.name;
-    },
+    },   
+   
     index: function () {
         return EnglishIndex;
     },

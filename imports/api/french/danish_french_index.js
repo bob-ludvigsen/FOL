@@ -2,15 +2,16 @@ import { French } from './french.js';
 import { Index, MongoDBEngine } from 'meteor/easy:search';
 import { _ } from 'meteor/underscore';
 
-export const FrenchIndex = new Index({
+export const DanishFrenchIndex = new Index({
   engine: new MongoDBEngine({
     sort: function () {
-      return { FR: 1 };
+      return { DK: 1 };
     },
+
   }),
-  name: 'FrenchIndex',
+  name: 'DanishFrenchIndex',
   collection: French,
-  fields: ['DK', 'FR'],
+  fields: ['DK'],
   defaultSearchOptions: {
     limit: 50
   },
