@@ -1,0 +1,79 @@
+<template name="listtactic">
+
+
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="grey-background">
+                <div class="input-group">
+
+                    <input type="text" class="form-control search-input-filter width-search" value="{{setTacticFilter}}"
+                           placeholder="Søg på begreb/ord eller definition">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-success" disabled="disabled"><span class="glyphicon glyphicon-search"></span></button>
+                        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <button type="button" class="btn btn-success opret-nyt">Nyt ord!</button>
+
+        </div>
+
+
+
+    </div>
+
+
+    <div class="results-wrapper">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Redigering af spørgsmål</th>
+                    <th>Begreb/ord</th>
+                    <th>Forkortelse</th>
+                    <th>Definition</th>
+                    <th>NATO oversættelse og forkortelse</th>
+                    <th>Bemærkning</th>
+                    <th>Rev. dato</th>
+                </tr>
+
+                </thead>
+                <tbody>
+
+                {{#each words}}
+                    <tr>
+                        <td>
+
+                            <a href="#"  id="deletetactic">Slet</a><br/>
+                            <a href="{{pathFor 'edittactic'}}" id="edittactic">Rediger</a>
+                            <!--<a href="{{pathFor 'editquestion'}}" id="updatequestion" class="glyphicon glyphicon-pencil clickable updatequestion"></a>-->
+
+
+                        </td>
+
+                        <td>{{ord}}</td>
+                        <td>{{fork}}</td>
+                        <td>{{definition}}</td>
+                        <td>{{nato_translation}}</td>
+                        <td>{{remark}}</td>
+                        <td>{{rev}}</td>
+                    </tr>
+                {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+</template>

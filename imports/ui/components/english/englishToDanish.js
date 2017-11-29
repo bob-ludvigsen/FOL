@@ -1,17 +1,16 @@
 /**
- * Created by 00185769 on 23-11-2017.
+ * Created by 00185769 on 24-11-2017.
  */
-import './englishdanish.html';
 
-import { Meteor } from 'meteor/meteor';
+import './englishToDanish.html';
+//import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
-import { EasySearch } from 'meteor/easy:search';
-import { English } from '../../../api/english/english.js';
+//import { EasySearch } from 'meteor/easy:search';
 import { EngDaIndex } from '../../../api/english/englishdanish_index';
 import { $ } from 'meteor/jquery';
 
 
-Template.searchEngDa.helpers({
+Template.engtodanish.helpers({
 
     inputAttributes: function () {
 
@@ -25,10 +24,14 @@ Template.searchEngDa.helpers({
     resultsCount: function () {
         return EngDaIndex.getComponentDict().get('count');
     },
-    
-    
-    
+
 })
-    
-    
-    
+
+Template.engtodanish.events({
+
+    'click .btn-danger': function () {
+        $('.empty').val('');
+        EngDaIndex.getComponentDict().clear();
+    },
+
+});

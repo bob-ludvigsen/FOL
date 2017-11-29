@@ -31,12 +31,7 @@ Template.danishfrench.helpers({
 
     renderTmpl: () => Template.renderTemplate,
 
-/*
-    test : function () {
-        console.log('hey');
-        console.log(DanishFrenchIndex.search('venstre', {limit:10}).fetch());
-    },
-    */
+   
 });
 
 Template.danishfrench.events({

@@ -46,3 +46,7 @@ Meteor.publish('englishdanish', function(searchTerm) {
   return EngDaIndex.search(searchTerm).mongoCursor;
 
 });
+
+Meteor.publish(null, function (){
+  return Meteor.roles.find({})
+});

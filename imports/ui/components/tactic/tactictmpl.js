@@ -25,12 +25,8 @@ Template.tactictempl.helpers({
     
     resultsCount: function () {
         return TacticIndex.getComponentDict().get('count');
-    },
-    test: function () {
-
-        console.log(TacticIndex.search('post', {limit:10}).fetch());
-
     }
+
     
 })
 
