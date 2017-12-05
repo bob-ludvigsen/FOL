@@ -3,7 +3,7 @@ import { Players } from '../../api/players/players.js';
 import { English } from '../../api/english/english.js';
 import { French } from '../../api/french/french.js';
 import { Tactic } from '../../api/tactic/tactic.js';
-
+/*
 if (French.find().count() === 0) {
 
     // create sample polls
@@ -41,13 +41,13 @@ if (Tactic.find().count() === 0) {
 }
 
 
-/*
+
 
  var users = [
  {name:"Normal User",email:"normal@example.com",roles:''},
  {name:"engelsk",email:"view@example.com",roles: 'hto'},
  {name:"Manage-Users User",email:"manage@example.com",roles: 'manage-users'},
- {name:"Admin User",email:"bob@hesse-ludvigsen.dk",roles: 'admin'}
+ {name:"Admin User",email:"bolu@fak.dk",roles: 'admin'}
  ];
 
  _.each(users, function (user) {
@@ -66,4 +66,4 @@ if (Tactic.find().count() === 0) {
  }
 
  });
- */
+*/

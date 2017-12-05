@@ -1,16 +1,8 @@
 {
-  "name": "easy-search-leaderboard",
+  "name": "Forsvarets_ordlister",
   "version": "0.0.1",
-  "description": "One of the meteorjs examples enhanced with the easy-search package",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/matteodem/easy-search-leaderboard.git"
-  },
+  "description": "Fransk, engelsk og taktisk ordliste samlet på et sted",
   "author": "",
-  "bugs": {
-    "url": "https://github.com/matteodem/easy-search-leaderboard/issues"
-  },
-  "homepage": "https://github.com/matteodem/easy-search-leaderboard",
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "bcrypt": "^1.0.3",

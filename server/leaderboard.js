@@ -4,12 +4,8 @@ import { check } from 'meteor/check';
 import {Tactic} from  '../imports/api/tactic/tactic';
 import {French} from '../imports/api/french/french';
 import {English} from  '../imports/api/english/english'
-
+import { Accounts } from 'meteor/accounts-base';
 Meteor.methods({
-  updateScore: function (playerId) {
-    check(playerId, String);
-    Players.update(playerId, { $inc: { score: 5 }});
-  },
 
   adminAddUser: function (user) {
 
@@ -279,15 +275,23 @@ Meteor.startup(function () {
 
   // A Function that takes a user object and a url, and returns the body text for the email.
   // Note: if you need to return HTML instead, use Accounts.emailTemplates.verifyEmail.html
+
   Accounts.emailTemplates.resetPassword.text = function (user, url) {
     return "Du har anmodet om en ny adgangskode"
         + " Klik på linket herunder for at lave en ny:\n\n"
         + url;
   };
 
-
-
-
+/*
+  Accounts.emailTemplates.resetPassword = {
+    from: ()=> "xxxx@test.com",
+    subject: ()=> "Reset Your Account Password",
+    text: (user, url)=> {
+      const newUrl = url.replace("#/reset-password", "ResetPassword");
+      return `Hi,Click the Link below to reset your password:\n${newUrl}`;
+    }
+  };
+*/
 
 
 

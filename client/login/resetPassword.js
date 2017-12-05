@@ -1,6 +1,8 @@
 /**
  * Created by Bob on 24-08-2015.
  */
+import { Accounts } from 'meteor/accounts-base';
+
 Template.ForgotPassword.events({
     'submit #forgotPasswordForm': function(e, t) {
         e.preventDefault();
@@ -49,12 +51,17 @@ Template.ForgotPassword.events({
             Accounts.forgotPassword({email: email}, function(err) {
                 if (err) {
                     if (err.message === 'User not found [403]') {
-                        console.log('This email does not exist.');
+                        console.log('Denne email eksisterer ikke.');
+                        alert('Denne email eksisterer ikke.');
                     } else {
-                        console.log('We are sorry but something went wrong.');
+                        console.log('Beklager, noget gik galt.');
+                        alert('Beklager, noget gik galt.');
                     }
                 } else {
-                    console.log('Email Sent. Check your mailbox.');
+                    console.log('Email er sendt. Check din mailbox.');
+                    alert('Email er sendt. Check din mailbox.');
+                    Router.go('/login');
+
                 }
             });
 
